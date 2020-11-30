@@ -1,0 +1,35 @@
+.drawing-container {
+  min-width: 100px;
+  min-height: 100px;
+  display: inline-block;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.action-container {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 16px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+@media (orientation: landscape) {
+  .main-container {
+    display: flex;
+  }
+
+  .drawing-container {
+    flex: 0 0 auto;
+  }
+
+  .action-container {
+    padding: 16px;
+    flex-direction: column;
+    place-items: flex-start;
+  }
+}
