@@ -7,7 +7,10 @@
 </mat-toolbar>
 
 <div class="main-container">
-  <div class="drawing-container" freehand [fillColor]="'0x' + fillColor"></div>
+  <div class="drawing-container" freehand
+    [fillColor]="'0x' + fillColor"
+    (beginStroke)="onBeginStroke()"
+    (endStroke)="onEndStroke()"></div>
 
   <div class="action-container">
     <button (click)="onUndo()" mat-icon-button>

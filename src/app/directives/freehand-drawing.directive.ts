@@ -345,7 +345,7 @@ export class FreehandDrawingDirective implements AfterViewInit, OnChanges, OnDes
    *
    * @param index Zero-based stroke (use default to add onto the existing stroke collection)
    */
-  public beginStrokeAt(x: number, y: number, index: number = -1): void
+  public beginStrokeAt(x: number, y: number, index: number = -1, external: boolean = false): void
   {
     this._x.length = 0;
     this._y.length = 0;
@@ -395,7 +395,8 @@ export class FreehandDrawingDirective implements AfterViewInit, OnChanges, OnDes
 
     this._mousePressed = true;
 
-    this._beginStroke.emit('beginStroke');
+    if (!external)
+      this._beginStroke.emit('beginStroke');
   }
 
   /**
@@ -405,7 +406,7 @@ export class FreehandDrawingDirective implements AfterViewInit, OnChanges, OnDes
    *
    * @param y y-coordinate of simulated mouse position in container coordinates
    */
-  public endStrokeAt(x: number, y: number): void
+  public endStrokeAt(x: number, y: number, external: boolean = false): void
   {
     if (this.cache)
     {
@@ -423,7 +424,8 @@ export class FreehandDrawingDirective implements AfterViewInit, OnChanges, OnDes
 
     this._mousePressed = false;
 
-    this._endStroke.emit('endStroke');
+    if (!external)
+      this._endStroke.emit('endStroke');
   }
 
   /**

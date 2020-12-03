@@ -6,6 +6,9 @@ import { FreehandDrawingDirective } from './directives/freehand-drawing.directiv
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatDialogModule, MatIconModule, MatMenuModule, MatToolbarModule } from '@angular/material';
 import { InfoComponent } from './info/info.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './services/api.service';
+import { SocketService } from './services/socket.service';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,17 @@ import { InfoComponent } from './info/info.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    SocketService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [InfoComponent]
 })
